@@ -1,0 +1,5 @@
+Misc.WaitForContext(0x000992F9, 1000)
+Misc.ContextReply(0x000992F9, 1)
+Gumps.WaitForGump(2611865322, 1000)
+Gumps.SendAction(2611865322, 1)
+Misc.Pause(60*1000)

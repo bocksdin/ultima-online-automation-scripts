@@ -1,0 +1,25 @@
+promptalias swordone
+promptalias swordtwo
+promptalias swordthree
+promptalias swordfour
+
+while skill 'Anatomy' < 100
+    while not @findobject 'righthand'
+        if @findobject 'swordone'
+            equipitem 'swordone'
+            break
+        endif
+        if @findobject 'swordtwo'
+            equipitem 'swordtwo'
+            break
+        endif
+        if @findobject 'swordthree'
+            equipitem 'swordthree'
+            break
+        endif
+        if @findobject 'swordfour'
+            equipitem 'swordfour'
+            break
+        endif
+    endwhile
+endwhile

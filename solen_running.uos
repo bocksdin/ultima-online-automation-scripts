@@ -1,0 +1,174 @@
+// ENTER HIVE
+useobject 0x40000435
+pause 500
+turn "South"
+for 59
+  run "South"
+  pause 200
+endfor
+turn "Southwest"
+for 20
+  run "Southwest"
+  pause 200
+endfor
+turn "West"
+run "West"
+pause 200
+// FIRST HOLE
+useobject 0x40000458
+pause 500
+turn "East"
+turn "Northeast"
+for 3
+  run "Northeast"
+  pause 200
+endfor
+turn "East"
+for 5
+  run "East"
+  pause 200
+endfor
+turn "Northeast"
+for 5
+  run "Northeast"
+  pause 200
+endfor
+turn "North"
+for 10
+  run "North"
+  pause 200
+endfor
+turn "Northwest"
+for 28
+  run "Northwest"
+  pause 200
+endfor
+turn "West"
+for 12
+  run "West"
+  pause 200
+endfor
+turn "Northwest"
+for 22
+  run "Northwest"
+  pause 200
+endfor
+turn "West"
+for 26
+  run "West"
+  pause 200
+endfor
+turn "Southwest"
+for 5
+  run "Southwest"
+  pause 200
+endfor
+turn "South"
+for 3
+  run "South"
+  pause 200
+endfor
+turn "Southeast"
+for 15
+  run "Southeast"
+  pause 200
+endfor
+turn "South"
+for 14
+  run "South"
+  pause 200
+endfor
+turn "Southeast"
+for 17
+  run "Southeast"
+  pause 200
+endfor
+turn "South"
+for 9
+  run "South"
+  pause 200
+endfor
+turn "Southwest"
+for 3
+  run "Southwest"
+  pause 200
+endfor
+turn "West"
+for 16
+  run "West"
+  pause 200
+endfor
+turn "Southwest"
+turn "South"
+for 6
+  run "South"
+  pause 200
+endfor
+turn "Southeast"
+for 20
+  run "Southeast"
+  pause 200
+endfor
+turn "East"
+for 3
+  run "East"
+  pause 200
+endfor
+turn "Southeast"
+for 6
+  run "Southeast"
+  pause 200
+endfor
+turn "East"
+for 7
+  run "East"
+  pause 200
+endfor
+turn "Northeast"
+for 9
+  run "Northeast"
+  pause 200
+endfor
+turn "North"
+for 35
+  run "North"
+  pause 200
+endfor
+// SECOND HOLE
+useobject 0x4000046d
+pause 500
+turn "Southeast"
+for 7
+  run "Southeast"
+  pause 200
+endfor
+turn "East"
+for 2
+  run "East"
+  pause 200
+endfor
+turn "Southeast"
+for 22
+  run "Southeast"
+  pause 200
+endfor
+turn "South"
+for 15
+  run "South"
+  pause 200
+endfor
+turn "Southwest"
+for 5
+  run "Southwest"
+  pause 200
+endfor
+turn "West"
+for 2
+  run "West"
+  pause 200
+endfor
+turn "Northwest"
+for 22
+  run "Northwest"
+  pause 200
+endfor

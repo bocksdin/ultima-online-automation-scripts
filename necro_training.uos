@@ -1,0 +1,29 @@
+
+if skill "Necromancy" < 20
+    cast "Curse Weapon"
+elseif skill "Necromancy" < 40
+    cast "Corpse Skin"
+    waitfortarget 1500
+    target self
+elseif skill "Necromancy" < 50
+    if diffhits > 30
+        cast "Greater Heal"
+        waitfortarget 1500
+        target self
+    else
+        cast "Pain Spike"
+        waitfortarget 1500
+        target self
+    endif
+elseif skill "Necromancy" < 70
+    cast "Horrific Beast"
+    pause 500
+elseif skill "Necromancy" < 99
+    cast "Lich Form"
+    pause 500
+else
+    cast "Vampiric Embrace"
+    pause 500
+endif
+pause 1000
+loop

@@ -1,0 +1,4 @@
+
+useskill "Animal Taming"
+waitfortarget 500
+target 0x0012DF48

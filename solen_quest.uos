@@ -1,0 +1,127 @@
+useobject 0x415C3A7C
+waitforgump 1431013363 10000
+replygump 1431013363 11
+pause 2000
+useobject 0x40000435 // ENTER SOLEN HIVE
+pause 500
+for 58
+run "South"
+endfor
+for 16
+run "Left"
+endfor
+for 2
+run "South"
+endfor
+for 8
+run "Left"
+endfor
+useobject 0x4000045A // FIRST HOLE
+pause 500
+for 2
+walk "South"
+endfor
+for 2
+walk "East"
+endfor
+for 6
+run "East"
+endfor
+for 2
+run "Right"
+endfor
+for 2
+run "North"
+endfor
+for 10
+run "Right"
+endfor
+for 13
+run "North"
+endfor
+for 29
+run "Up"
+endfor
+for 2
+run "West"
+endfor
+for 2
+run "Up"
+endfor
+for 11
+run "West"
+endfor
+for 24
+run "Up"
+endfor
+for 26
+run "West"
+endfor
+for 6
+run "Left"
+endfor
+for 8
+run "South"
+endfor
+for 15
+run "Down"
+endfor
+for 15
+run "South"
+endfor
+for 18
+run "Down"
+endfor
+for 9
+run "South"
+endfor
+for 4
+run "Left"
+endfor
+for 17
+run "West"
+endfor
+for 2
+run "Left"
+endfor
+for 7
+run "South"
+endfor
+for 26
+run "Down"
+endfor
+for 15
+run "East"
+endfor
+for 7
+run "Right"
+endfor
+for 41
+run "North"
+endfor
+useobject 0x4000046E // SECOND HOLE
+pause 500
+for 2
+walk "Down"
+endfor
+for 7
+run "East"
+endfor
+for 30
+run "Down"
+endfor
+for 16
+run "South"
+endfor
+for 6
+run "Left"
+endfor
+for 4
+run "West"
+endfor
+for 24
+run "Up"
+endfor
+waitforcontext 0x00029CDC 0 10000 // TALK TO QUEEN FOR WATER PORTION
+waitforgump 2685952746 10000
+replygump 2685952746 1

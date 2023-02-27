@@ -1,0 +1,14 @@
+while skill 'Chivalry' < 65
+    if skill 'Chivalry' < 35
+        cast 'Divine Fury'
+    elseif skill 'Chivalry' < 45
+        cast 'Dispel Evil'
+    elseif skill 'Chivalry' < 55
+        cast 'Enemy of One'
+    else
+        cast 'Holy Light'
+        waitfortarget 1000
+        target 'self'
+    endif
+    pause 2000
+endwhile

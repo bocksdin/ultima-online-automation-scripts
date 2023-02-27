@@ -1,0 +1,23 @@
+if skill "Necromancy" < 20
+    cast "Curse Weapon"
+else
+    if skill "Necromancy" < 40
+        cast "Corpse Skin" "self"
+    else
+        if skill "Necromancy" < 50
+            if diffhits > 30
+                autotargetself cast "Greater Heal"
+            else
+                cast "Pain Spike" "self"
+            endif
+        else  
+            if skill "Necromancy" < 70
+                cast "Horrific Beast"
+            else
+                cast "Lich Form"
+            endif
+        endif
+    endif
+endif
+pause 1000
+loop

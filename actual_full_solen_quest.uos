@@ -1,0 +1,322 @@
+@setalias 'AntsDropoff' 0x4099d101
+@setalias 'TrashBin' 0x4301BD1E
+@setalias 'WaterBag' 0x466884f7
+@promptalias 'AntsRunebook'
+@promptalias 'AntsHome'
+
+@createlist 'AntRunes'
+@pushlist 'AntRunes' 7
+@pushlist 'AntRunes' 13
+@pushlist 'AntRunes' 19
+@pushlist 'AntRunes' 25
+@pushlist 'AntRunes' 31
+@pushlist 'AntRunes' 37
+@pushlist 'AntRunes' 43
+@pushlist 'AntRunes' 49
+@pushlist 'AntRunes' 55
+
+@createlist 'ItemsToStore'
+@pushlist 'ItemsToStore' 0x0EED
+@pushlist 'ItemsToStore' 0x26B8
+@pushlist 'ItemsToStore' 0xf26
+@pushlist 'ItemsToStore' 0xf25
+@pushlist 'ItemsToStore' 0xf16
+@pushlist 'ItemsToStore' 0xf10
+@pushlist 'ItemsToStore' 0xf19
+@pushlist 'ItemsToStore' 0xf21
+@pushlist 'ItemsToStore' 0xf2d
+@pushlist 'ItemsToStore' 0xf13
+@pushlist 'ItemsToStore' 0x26B7
+
+useobject 'AntsHome'
+waitforgump 1431013363 10000
+replygump 1431013363 19
+pause 2000
+
+useobject 0x40000435
+pause 1000
+
+while y < 1858
+    run 'South'
+    pause 100
+endwhile
+while y < 1878
+    run 'Left'
+    pause 100
+endwhile
+
+useobject 0x40000459
+pause 1000
+
+while y > 1853
+    run 'Right'
+    pause 100
+endwhile
+while y > 1819
+    run 'Up'
+    pause 100
+endwhile
+while x > 5844
+    run 'West'
+    pause 100
+endwhile
+while y > 1797
+    run 'Up'
+    pause 100
+endwhile
+while x > 5794
+    run 'West'
+    pause 100
+endwhile
+while y < 1813
+    run 'South'
+    pause 100
+endwhile
+while y < 1855
+    run 'Down'
+    pause 100
+endwhile
+while y < 1864
+    run 'Left'
+    pause 100
+endwhile
+while x > 5801
+    run 'West'
+    pause 100
+endwhile
+while y < 1897
+    run 'Down'
+    pause 100
+endwhile
+while x < 5846
+    run 'East'
+    pause 100
+endwhile
+while y > 1873
+    run 'North'
+    pause 100
+endwhile
+while x < 5851
+    run 'East'
+    pause 100
+endwhile
+while y > 1851
+    run 'North'
+    pause 100
+endwhile
+
+useobject 0x4000046D
+pause 1000
+
+while y < 1902
+    run 'Down'
+    pause 100
+endwhile
+while y < 1914
+    run 'South'
+    pause 100
+endwhile
+while y < 1920
+    run 'Left'
+    pause 100
+endwhile
+while y > 1897
+    run 'Up'
+    pause 100
+endwhile
+
+// ACCEPT QUEST START FROM QUEEN
+waitforcontext 0x00029CDC 0 10000
+waitforgump 2460962336 10000
+replygump 2460962336 1
+waitforgump 2685952746 10000
+replygump 2685952746 1
+
+while @counttype 0x26B7 'any' 'backpack' < 200
+  for 0 to 'AntRunes'
+    pause 250
+    clearjournal
+    pause 250
+    useobject AntsRunebook
+    waitforgump 0x554b87f3 5000
+    replygump 0x554b87f3 AntRunes[]
+    sysmsg 'Rune' 33
+    sysmsg AntRunes[] 33
+    pause 2000
+    while @findtype 0x0326 'any' 'world' 0 10 or @findtype 0x0327 'any' 'world' 0 10
+        attack 'found'
+        if diffhits > 30
+          usetype! 0xe21
+          waitingfortarget 300
+          target 'self'
+          pause 7000
+        endif
+    endwhile
+    pause 5000
+  endfor
+endwhile
+
+if @counttype 0x1F9D 'any' 'backpack' < 8
+  useobject 'AntsHome'
+  waitforgump 0x554b87f3 10000
+  replygump 0x554b87f3 7
+  pause 5000
+  useobject 'AntsDropoff'
+  pause 500
+  useobject 'WaterBag'
+  pause 500
+  while @counttype 0x1f9d 'any' 'backpack' < 64
+    movetype 0x1f9d 'WaterBag' 'backpack' 'any'
+    pause 1000
+  endwhile
+  // DROP EMPTY PITCHERS
+  while @findtype 0x0FF6 'any' 'backpack'
+    movetype 0x0FF6 'backpack' 'TrashBin' 'any'
+    pause 1000
+  endwhile
+
+  for 0 to 'ItemsToStore'
+    movetype ItemsToStore[] 'backpack' 'AntsDropoff' (0 0 0) 'any'
+    pause 1000
+  endfor
+endif
+
+useobject 'AntsHome'
+waitforgump 1431013363 10000
+replygump 1431013363 19
+pause 2000
+
+useobject 0x40000435
+pause 1000
+
+while y < 1858
+    run 'South'
+    pause 100
+endwhile
+while y < 1878
+    run 'Left'
+    pause 100
+endwhile
+
+useobject 0x40000459
+pause 1000
+
+while y > 1853
+    run 'Right'
+    pause 100
+endwhile
+while y > 1819
+    run 'Up'
+    pause 100
+endwhile
+while x > 5844
+    run 'West'
+    pause 100
+endwhile
+while y > 1797
+    run 'Up'
+    pause 100
+endwhile
+while x > 5794
+    run 'West'
+    pause 100
+endwhile
+while y < 1813
+    run 'South'
+    pause 100
+endwhile
+while y < 1855
+    run 'Down'
+    pause 100
+endwhile
+while y < 1864
+    run 'Left'
+    pause 100
+endwhile
+while x > 5801
+    run 'West'
+    pause 100
+endwhile
+while y < 1897
+    run 'Down'
+    pause 100
+endwhile
+while x < 5846
+    run 'East'
+    pause 100
+endwhile
+while y > 1873
+    run 'North'
+    pause 100
+endwhile
+while x < 5851
+    run 'East'
+    pause 100
+endwhile
+while y > 1851
+    run 'North'
+    pause 100
+endwhile
+
+useobject 0x4000046D
+pause 1000
+
+while y < 1902
+    run 'Down'
+    pause 100
+endwhile
+while y < 1914
+    run 'South'
+    pause 100
+endwhile
+while y < 1920
+    run 'Left'
+    pause 100
+endwhile
+while y > 1897
+    run 'Up'
+    pause 100
+endwhile
+
+// ACCEPT WATER QUEST FROM QUEEN
+waitforcontext 0x00029CDC 0 10000
+waitforgump 2685952746 10000
+replygump 2685952746 1
+
+// DUMP WATER
+while y < 1922
+    run 'Down'
+    pause 100
+endwhile
+while x > 5800
+    run 'Left'
+    pause 100
+endwhile
+
+for 8
+  usetype 0x1F9D 'any' 'backpack'
+  waitfortarget 10000
+  target 0x40016111
+  pause 500
+endfor
+
+while x < 5803
+    run 'Right'
+    pause 100
+endwhile
+while y > 1897
+    run 'Up'
+    pause 100
+endwhile
+    
+// HAND IN WATER QUEST TO QUEEN
+waitforcontext 0x00029CDC 0 10000
+waitforgump 2685952746 10000
+replygump 2685952746 1
+pause 500
+
+// PROCESS ZOOGI FUNGUS WITH QUEEN
+waitforcontent 0x00029CDC 1 10000
+waitfortarget 10000
+targettype 0x26B7 0x0000 0
+pause 500

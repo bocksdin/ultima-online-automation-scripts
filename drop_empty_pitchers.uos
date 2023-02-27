@@ -1,0 +1,4 @@
+while findtype 0x0FF6 'any' 0x466884F7
+    movetype 0x0FF6 0x466884F7 0x41A799CD 'any'
+    pause 1000
+endwhile

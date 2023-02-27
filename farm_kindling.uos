@@ -1,0 +1,7 @@
+waitforgump 949095101 4000
+replygump 949095101 21
+//useobject 0x40000AD7
+//waitfortarget 500
+//targettileoffset 0 -1 0
+//pause 300
+loop

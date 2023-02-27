@@ -1,0 +1,9 @@
+if not @injournal 'fizzles' 'system'
+    cast "Greater Heal"
+    waitfortarget 1000
+    target 0x000A4B70
+else
+    target 0x000A4B70
+endif
+pause 5000
+loop

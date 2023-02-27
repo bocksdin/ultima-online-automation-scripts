@@ -1,0 +1,29 @@
+if diffhits > 30
+    cast "Greater Heal"
+    waitfortarget 1500
+    target self
+elseif skill "Magery" < 45
+    cast "Fireball"
+    waitfortarget 1500
+    target self
+elseif skill "Magery" < 55
+    cast "Lightning"
+    waitfortarget 1500
+    target self
+elseif skill "Magery" < 65
+    cast "Paralyze"
+    waitfortarget 1500
+    target self
+elseif skill "Magery" < 75
+    cast "Reveal"
+    waitfortarget 1500
+    target self
+elseif skill "Magery" < 90
+    cast "Mana Vampire"
+    waitfortarget 1500
+    target self
+elseif skill "Magery" < 120
+    cast "Earthquake"
+endif
+pause 1000
+loop

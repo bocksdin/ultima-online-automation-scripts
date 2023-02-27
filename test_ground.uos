@@ -1,0 +1,3 @@
+if @getenemy
+    cast "Divine Fury"
+endif

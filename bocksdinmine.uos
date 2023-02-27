@@ -1,0 +1,395 @@
+//1. need 2 full runebooks marked 1 tile south of the mineable locations
+//2. macro assumes you have tinkering
+//3. Set the itemid for MiningDropoff and FireBeetle for your personal setup
+@setalias 'MiningDropoff' 0x43a71a8b
+@setalias 'FireBeetle' 0xbab8d
+if not @findobject 'OreBookFive'
+  promptalias 'OreBookFive'
+endif
+if not @findobject 'OreBookSix'
+  promptalias 'OreBookSix'
+endif
+if not @findobject 'OreBookSeven'
+  promptalias 'OreBookSeven'
+endif
+if not @findobject 'OreBookEight'
+  promptalias 'OreBookEight'
+endif
+if not @findobject 'HomeOreTwo'
+  promptalias 'HomeOreTwo'
+endif
+if not listexists 'OreBookTwo'
+  createlist 'OreBookTwo'
+  pushlist 'OreBookTwo' 'OreBookFive'
+  pushlist 'OreBookTwo' 'OreBookSix'
+  pushlist 'OreBookTwo' 'OreBookSeven'
+  pushlist 'OreBookTwo' 'OreBookEight'
+endif
+removelist 'RunesTwo'
+if not listexists 'RunesTwo'
+  createlist 'RunesTwo'
+  pushlist 'RunesTwo' 7
+  pushlist 'RunesTwo' 13
+  pushlist 'RunesTwo' 19
+  pushlist 'RunesTwo' 25
+  pushlist 'RunesTwo' 31
+  pushlist 'RunesTwo' 37
+  pushlist 'RunesTwo' 43
+  pushlist 'RunesTwo' 49
+  pushlist 'RunesTwo' 55
+  pushlist 'RunesTwo' 61
+  pushlist 'RunesTwo' 67
+  pushlist 'RunesTwo' 73
+  pushlist 'RunesTwo' 79
+  pushlist 'RunesTwo' 85
+  pushlist 'RunesTwo' 91
+  pushlist 'RunesTwo' 97
+endif
+for 0 to 'OreBookTwo'
+  for 0 to 'RunesTwo'
+    pause 250
+    clearjournal
+    pause 250
+    useobject 'FireBeetle'
+    pause 700
+    useobject OreBookTwo[]
+    waitforgump 0x554b87f3 5000
+    replygump 0x554b87f3 RunesTwo[]
+    //tells you which rune you are on, see runelist above
+    sysmsg 'Rune' 33
+    sysmsg RunesTwo[] 33
+    pause 2000
+    useobject 'self'
+    pause 500
+    while not @injournal 'no metal here' 'system' and not @injournal "can't mine that" 'system'
+      if @injournal "can't dig while riding or flying" "system"
+        useobject 'self'
+        @clearjournal
+      endif
+      //use pickaxe to northern tile until specified weight is reached
+      pause 300
+      usetype 0xe86
+      waitfortarget 1000
+      targettileoffset 0 -1 0
+      //clickscreen 330 225 'single' 'left'
+      // once weight is reached, smelt
+      if weight > 520
+        // 0x19b9 /////////////////////////////////////////
+        while counttype 0x19b9 0 'backpack' > 1 and not @injournal "not enough metal-bearing ore" 'system'
+          usetype! 0x19b9 0
+          waitfortarget 1000
+          target! 'FireBeetle'
+          pause 300
+        endwhile
+        @clearjournal
+        while counttype 0x19b9 2419 'backpack' > 1 and not @injournal "not enough metal-bearing ore" 'system'
+          usetype! 0x19b9 2419
+          waitfortarget 1000
+          target! 'FireBeetle'
+          pause 300
+        endwhile
+        @clearjournal
+        while counttype 0x19b9 2406 'backpack' > 1 and not @injournal "not enough metal-bearing ore" 'system'
+          usetype! 0x19b9 2406
+          waitfortarget 1000
+          target! 'FireBeetle'
+          pause 300
+        endwhile
+        @clearjournal
+        while counttype 0x19b9 2413 'backpack' > 1 and not @injournal "not enough metal-bearing ore" 'system'
+          usetype! 0x19b9 2413
+          waitfortarget 1000
+          target! 'FireBeetle'
+          pause 300
+        endwhile
+        @clearjournal
+        while counttype 0x19b9 2418 'backpack' > 1 and not @injournal "not enough metal-bearing ore" 'system'
+          usetype! 0x19b9 2418
+          waitfortarget 1000
+          target! 'FireBeetle'
+          pause 300
+        endwhile
+        @clearjournal
+        while counttype 0x19b9 2213 'backpack' > 1 and not @injournal "not enough metal-bearing ore" 'system'
+          usetype! 0x19b9 2213
+          waitfortarget 1000
+          target! 'FireBeetle'
+          pause 300
+        endwhile
+        @clearjournal
+        while counttype 0x19b9 2425 'backpack' > 1 and not @injournal "not enough metal-bearing ore" 'system'
+          usetype! 0x19b9 2425
+          waitfortarget 1000
+          target! 'FireBeetle'
+          pause 300
+        endwhile
+        @clearjournal
+        while counttype 0x19b9 2207 'backpack' > 1 and not @injournal "not enough metal-bearing ore" 'system'
+          usetype! 0x19b9 2207
+          waitfortarget 1000
+          target! 'FireBeetle'
+          pause 300
+        endwhile
+        @clearjournal
+        while counttype 0x19b9 2219 'backpack' > 1 and not @injournal "not enough metal-bearing ore" 'system'
+          usetype! 0x19b9 2219
+          waitfortarget 1000
+          target! 'FireBeetle'
+          pause 300
+        endwhile
+        @clearjournal
+        // 0x19b8 /////////////////////////////////////////
+        while counttype 0x19b8 0 'backpack' > 1 and not @injournal "not enough metal-bearing ore" 'system'
+          usetype! 0x19b8 0
+          waitfortarget 1000
+          target! 'FireBeetle'
+          pause 300
+        endwhile
+        @clearjournal
+        while counttype 0x19b8 2419 'backpack' > 1 and not @injournal "not enough metal-bearing ore" 'system'
+          usetype! 0x19b8 2419
+          waitfortarget 1000
+          target! 'FireBeetle'
+          pause 300
+        endwhile
+        @clearjournal
+        while counttype 0x19b8 2406 'backpack' > 1 and not @injournal "not enough metal-bearing ore" 'system'
+          usetype! 0x19b8 2406
+          waitfortarget 1000
+          target! 'FireBeetle'
+          pause 300
+        endwhile
+        @clearjournal
+        while counttype 0x19b8 2413 'backpack' > 1 and not @injournal "not enough metal-bearing ore" 'system'
+          usetype! 0x19b8 2413
+          waitfortarget 1000
+          target! 'FireBeetle'
+          pause 300
+        endwhile
+        @clearjournal
+        while counttype 0x19b8 2418 'backpack' > 1 and not @injournal "not enough metal-bearing ore" 'system'
+          usetype! 0x19b8 2418
+          waitfortarget 1000
+          target! 'FireBeetle'
+          pause 300
+        endwhile
+        @clearjournal
+        while counttype 0x19b8 2213 'backpack' > 1 and not @injournal "not enough metal-bearing ore" 'system'
+          usetype! 0x19b8 2213
+          waitfortarget 1000
+          target! 'FireBeetle'
+          pause 300
+        endwhile
+        @clearjournal
+        while counttype 0x19b8 2425 'backpack' > 1 and not @injournal "not enough metal-bearing ore" 'system'
+          usetype! 0x19b8 2425
+          waitfortarget 1000
+          target! 'FireBeetle'
+          pause 300
+        endwhile
+        @clearjournal
+        while counttype 0x19b8 2207 'backpack' > 1 and not @injournal "not enough metal-bearing ore" 'system'
+          usetype! 0x19b8 2207
+          waitfortarget 1000
+          target! 'FireBeetle'
+          pause 300
+        endwhile
+        @clearjournal
+        while counttype 0x19b8 2219 'backpack' > 1 and not @injournal "not enough metal-bearing ore" 'system'
+          usetype! 0x19b8 2219
+          waitfortarget 1000
+          target! 'FireBeetle'
+          pause 300
+        endwhile
+        @clearjournal
+        // 0x19ba /////////////////////////////////////////
+        while counttype 0x19ba 0 'backpack' > 1 and not @injournal "not enough metal-bearing ore" 'system'
+          usetype! 0x19ba 0
+          waitfortarget 1000
+          target! 'FireBeetle'
+          pause 300
+        endwhile
+        @clearjournal
+        while counttype 0x19ba 2419 'backpack' > 1 and not @injournal "not enough metal-bearing ore" 'system'
+          usetype! 0x19ba 2419
+          waitfortarget 1000
+          target! 'FireBeetle'
+          pause 300
+        endwhile
+        @clearjournal
+        while counttype 0x19ba 2406 'backpack' > 1 and not @injournal "not enough metal-bearing ore" 'system'
+          usetype! 0x19ba 2406
+          waitfortarget 1000
+          target! 'FireBeetle'
+          pause 300
+        endwhile
+        @clearjournal
+        while counttype 0x19ba 2413 'backpack' > 1 and not @injournal "not enough metal-bearing ore" 'system'
+          usetype! 0x19ba 2413
+          waitfortarget 1000
+          target! 'FireBeetle'
+          pause 300
+        endwhile
+        @clearjournal
+        while counttype 0x19ba 2418 'backpack' > 1 and not @injournal "not enough metal-bearing ore" 'system'
+          usetype! 0x19ba 2418
+          waitfortarget 1000
+          target! 'FireBeetle'
+          pause 300
+        endwhile
+        @clearjournal
+        while counttype 0x19ba 2213 'backpack' > 1 and not @injournal "not enough metal-bearing ore" 'system'
+          usetype! 0x19ba 2213
+          waitfortarget 1000
+          target! 'FireBeetle'
+          pause 300
+        endwhile
+        @clearjournal
+        while counttype 0x19ba 2425 'backpack' > 1 and not @injournal "not enough metal-bearing ore" 'system'
+          usetype! 0x19ba 2425
+          waitfortarget 1000
+          target! 'FireBeetle'
+          pause 300
+        endwhile
+        @clearjournal
+        while counttype 0x19ba 2207 'backpack' > 1 and not @injournal "not enough metal-bearing ore" 'system'
+          usetype! 0x19ba 2207
+          waitfortarget 1000
+          target! 'FireBeetle'
+          pause 300
+        endwhile
+        @clearjournal
+        while counttype 0x19ba 2219 'backpack' > 1 and not @injournal "not enough metal-bearing ore" 'system'
+          usetype! 0x19ba 2219
+          waitfortarget 1000
+          target! 'FireBeetle'
+          pause 300
+        endwhile
+        @clearjournal
+        // 0x19b7 /////////////////////////////////////////
+        while counttype 0x19b7 0 'backpack' > 1 and not @injournal "not enough metal-bearing ore" 'system'
+          usetype! 0x19b7 0
+          waitfortarget 1000
+          target! 'FireBeetle'
+          pause 300
+        endwhile
+        @clearjournal
+        while counttype 0x19b7 2419 'backpack' > 1 and not @injournal "not enough metal-bearing ore" 'system'
+          usetype! 0x19b7 2419
+          waitfortarget 1000
+          target! 'FireBeetle'
+          pause 300
+        endwhile
+        @clearjournal
+        while counttype 0x19b7 2406 'backpack' > 1 and not @injournal "not enough metal-bearing ore" 'system'
+          usetype! 0x19b7 2406
+          waitfortarget 1000
+          target! 'FireBeetle'
+          pause 300
+        endwhile
+        @clearjournal
+        while counttype 0x19b7 2413 'backpack' > 1 and not @injournal "not enough metal-bearing ore" 'system'
+          usetype! 0x19b7 2413
+          waitfortarget 1000
+          target! 'FireBeetle'
+          pause 300
+        endwhile
+        @clearjournal
+        while counttype 0x19b7 2418 'backpack' > 1 and not @injournal "not enough metal-bearing ore" 'system'
+          usetype! 0x19b7 2418
+          waitfortarget 1000
+          target! 'FireBeetle'
+          pause 300
+        endwhile
+        @clearjournal
+        while counttype 0x19b7 2213 'backpack' > 1 and not @injournal "not enough metal-bearing ore" 'system'
+          usetype! 0x19b7 2213
+          waitfortarget 1000
+          target! 'FireBeetle'
+          pause 300
+        endwhile
+        @clearjournal
+        while counttype 0x19b7 2425 'backpack' > 1 and not @injournal "not enough metal-bearing ore" 'system'
+          usetype! 0x19b7 2425
+          waitfortarget 1000
+          target! 'FireBeetle'
+          pause 300
+        endwhile
+        @clearjournal
+        while counttype 0x19b7 2207 'backpack' > 1 and not @injournal "not enough metal-bearing ore" 'system'
+          usetype! 0x19b7 2207
+          waitfortarget 1000
+          target! 'FireBeetle'
+          pause 300
+        endwhile
+        @clearjournal
+        while counttype 0x19b7 2219 'backpack' > 1 and not @injournal "not enough metal-bearing ore" 'system'
+          usetype! 0x19b7 2219
+          waitfortarget 1000
+          target! 'FireBeetle'
+          pause 300
+        endwhile
+        @clearjournal
+      endif
+      if counttype 0x1bf2 'any' 'backpack' > 1000
+        pause 500
+        useobject 'FireBeetle'
+        pause 700
+        useobject 'HomeOreTwo'
+        waitforgump 0x554b87f3 5000
+        replygump 0x554b87f3 7
+        pause 2000
+        //Unload Ingots and Jewels
+        while counttype 0x1bf2 'any' 'backpack' > 0
+          movetype 0x1bf2 'backpack' 'MiningDropoff' (0 0 0) 'any'
+        endwhile
+        while counttype 0x3192 'any' 'backpack' > 0
+          movetype 0x3192 'backpack' 'MiningDropoff' (0 0 0) 'any'
+        endwhile
+        while counttype 0x3193 'any' 'backpack' > 0
+          movetype 0x3193 'backpack' 'MiningDropoff' (0 0 0) 'any'
+        endwhile
+        while counttype 0x3195 'any' 'backpack' > 0
+          movetype 0x3195 'backpack' 'MiningDropoff' (0 0 0) 'any'
+        endwhile
+        while counttype 0x3197 'any' 'backpack' > 0
+          movetype 0x3197 'backpack' 'MiningDropoff' (0 0 0) 'any'
+        endwhile
+        while counttype 0x3194 'any' 'backpack' > 0
+          movetype 0x3194 'backpack' 'MiningDropoff' (0 0 0) 'any'
+        endwhile
+        while counttype 0x3198 'any' 'backpack' > 0
+          movetype 0x3198 'backpack' 'MiningDropoff' (0 0 0) 'any'
+        endwhile
+        useobject 'MiningDropoff'
+        pause 1000
+        movetype 0x1bf2 'MiningDropoff' 'backpack' (0 0 0) 0x0000 100
+        pause 1000
+        //recall back to where you were
+        useobject OreBookTwo[]
+        waitforgump 0x554b87f3 5000
+        replygump 0x554b87f3 RunesTwo[]
+        pause 2000
+        useobject 'self'
+      endif
+      // kits
+      if @counttype 0x1bf2 0 'backpack' > 20
+        while @counttype 0x1eb8 0 'backpack' < 2
+          usetype! 0x1eb8
+          waitforgump 0x38920abd 15000
+          replygump 0x38920abd 8
+          waitforgump 0x38920abd 15000
+          replygump 0x38920abd 23
+        endwhile
+        //pickaxes
+        while @counttype 0xe86 0 'backpack' < 2
+          usetype! 0x1eb8
+          waitforgump 0x38920abd 15000
+          replygump 0x38920abd 8
+          waitforgump 0x38920abd 15000
+          replygump 0x38920abd 114
+        endwhile
+      endif
+    endwhile
+  endfor
+endfor

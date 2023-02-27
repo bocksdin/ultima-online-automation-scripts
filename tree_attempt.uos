@@ -1,0 +1,7 @@
+
+useobject 0x400248F3
+waitfortarget 10000
+targettile 1332 1989 0 3296
+useobject 0x400248F3
+waitfortarget 10000
+targettile 1340 1986 0 3277

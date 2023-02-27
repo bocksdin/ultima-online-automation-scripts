@@ -1,0 +1,250 @@
+//uos
+@setalias 'AntsDropoff' 0x4099d101
+if not @findobject 'AntsRunebook'
+  promptalias 'AntsRunebook'
+endif
+if not @findobject 'AntsHome'
+  promptalias 'AntsHome'
+endif
+removelist 'AntRunes'
+if not listexists 'AntRunes'
+  createlist 'AntRunes'
+  pushlist 'AntRunes' 7
+  pushlist 'AntRunes' 13
+  pushlist 'AntRunes' 19
+  pushlist 'AntRunes' 25
+  pushlist 'AntRunes' 31
+  pushlist 'AntRunes' 37
+  pushlist 'AntRunes' 43
+  pushlist 'AntRunes' 49
+endif
+// BEGIN HUNTING BLACK ANTS
+while @counttype 0x26B7 'any' 'backpack' < 200
+  for 0 to 'AntRunes'
+    pause 250
+    clearjournal
+    pause 250
+    useobject AntsRunebook
+    waitforgump 0x554b87f3 5000
+    replygump 0x554b87f3 AntRunes[]
+    sysmsg 'Rune' 33
+    sysmsg AntRunes[] 33
+    pause 2000
+    playmacro 'target_closest.py'
+    pause 15000
+    if weight > 500
+      useobject 'AntsHome'
+      waitforgump 0x554b87f3 5000
+      replygump 0x554b87f3 7
+      pause 5000
+      movetype 0xeed 'backpack' 'AntsDropoff' (0 0 0) 'any'
+      pause 1000
+      movetype 0x26B8 'backpack' 'AntsDropoff' (0 0 0) 'any'
+      pause 1000
+      movetype 0xf26 'backpack' 'AntsDropoff' (0 0 0) 'any'
+      pause 1000
+      movetype 0xf25 'backpack' 'AntsDropoff' (0 0 0) 'any'
+      pause 1000
+      movetype 0xf16 'backpack' 'AntsDropoff' (0 0 0) 'any'
+      pause 1000
+      movetype 0xf15 'backpack' 'AntsDropoff' (0 0 0) 'any'
+      pause 1000
+      movetype 0xf10 'backpack' 'AntsDropoff' (0 0 0) 'any'
+      pause 1000
+      movetype 0xf19 'backpack' 'AntsDropoff' (0 0 0) 'any'
+      pause 1000
+      movetype 0xf21 'backpack' 'AntsDropoff' (0 0 0) 'any'
+      pause 1000
+      movetype 0xf2d 'backpack' 'AntsDropoff' (0 0 0) 'any'
+      pause 1000
+      movetype 0xf13 'backpack' 'AntsDropoff' (0 0 0) 'any'
+      pause 1000
+    endif
+  endfor
+endwhile
+// END HUNTING BLACK ANTS
+// PICKUP WATER
+if @counttype 0x1F9D 'any' 'backpack' < 8
+  useobject 'AntsHome'
+  waitforgump 0x554b87f3 10000
+  replygump 0x554b87f3 7
+  pause 5000
+  useobject 'AntsDropoff'
+  pause 500
+  useobject 0x466884f7
+  pause 500
+  while @counttype 0x1f9d 'any' 'backpack' < 8
+    movetype 0x1f9d 0x466884f7 'backpack' 'any'
+    pause 1000
+  endwhile
+  // DROP EMPTY PITCHERS
+  while @findtype 0x0FF6 'any' 'backpack'
+    movetype 0x0FF6 'backpack' 0x4301BD1E 'any'
+    pause 1000
+  endwhile
+endif
+// RECALL TO SOLEN HIVE
+useobject 'AntsHome'
+waitforgump 0x554b87f3 10000
+replygump 0x554b87f3 19
+pause 5000
+// ENTER SOLEN HIVE
+useobject 0x40000435
+pause 500
+for 58
+  run "South"
+endfor
+for 16
+  run "Left"
+endfor
+for 2
+  run "South"
+endfor
+for 8
+  run "Left"
+endfor
+useobject 0x4000045A // FIRST HOLE
+pause 500
+for 2
+  walk "South"
+endfor
+for 2
+  walk "East"
+endfor
+for 6
+  run "East"
+endfor
+for 2
+  run "Right"
+endfor
+for 2
+  run "North"
+endfor
+for 10
+  run "Right"
+endfor
+for 13
+  run "North"
+endfor
+for 29
+  run "Up"
+endfor
+for 2
+  run "West"
+endfor
+for 2
+  run "Up"
+endfor
+for 11
+  run "West"
+endfor
+for 24
+  run "Up"
+endfor
+for 26
+  run "West"
+endfor
+for 6
+  run "Left"
+endfor
+for 8
+  run "South"
+endfor
+for 15
+  run "Down"
+endfor
+for 15
+  run "South"
+endfor
+for 18
+  run "Down"
+endfor
+for 9
+  run "South"
+endfor
+for 4
+  run "Left"
+endfor
+for 17
+  run "West"
+endfor
+for 2
+  run "Left"
+endfor
+for 7
+  run "South"
+endfor
+for 26
+  run "Down"
+endfor
+for 15
+  run "East"
+endfor
+for 7
+  run "Right"
+endfor
+for 41
+  run "North"
+endfor
+useobject 0x4000046E // SECOND HOLE
+pause 500
+for 2
+  walk "Down"
+endfor
+for 7
+  run "East"
+endfor
+for 30
+  run "Down"
+endfor
+for 16
+  run "South"
+endfor
+for 6
+  run "Left"
+endfor
+for 4
+  run "West"
+endfor
+for 24
+  run "Up"
+endfor
+// TALK TO QUEEN FOR WATER PORTION
+waitforcontext 0x00029CDC 0 10000
+waitforgump 2685952746 10000
+replygump 2685952746 1
+waitforgump 1353954171 10000
+replygump 1353954171 1
+waitforgump 2777669572 10000
+replygump 2777669572 1
+for 23
+  run "Down"
+endfor
+for 5
+  run "South"
+endfor
+// DUMP 8 WATER
+for 8
+  usetype 0x1F9D 'any' 'backpack'
+  waitfortarget 10000
+  target 0x40016111
+  pause 500
+endfor
+for 6
+  run "North"
+endfor
+for 22
+  run "Up"
+endfor
+// TALK TO QUEEN
+waitforcontext 0x00029CDC 0 10000
+// BEGIN TARGET FUNGUS
+waitforcontext 0x00029CDC 1 10000
+waitfortarget 10000
+targettype 0x26B7 0x0000
+// TALK TO QUEEN
+waitforcontext 0x00029CDC 0 10000
+waitforgump 2685952746 10000
+replygump 2685952746 1
+waitforgump 1353954171 10000
+replygump 1353954171 1

@@ -1,0 +1,6 @@
+for 8
+    usetype 0x1F9D 'any' 0x466884F7
+    waitfortarget 10000
+    target 0x40016111
+    pause 500
+endfor
