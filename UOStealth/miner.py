@@ -53,9 +53,10 @@ def unload(book, rune):
 
     # MOVE ALL INGOTS AND GEMS INTO THE DROPOFF CHEST
     for item in items_to_dropoff:
-      while FindType(item):
-        MoveItem(FindItem(), -1, mining_dropoff, 0xFFFF, 0xFFFF, 0)
-        Wait(1000)
+      for _ in range(5):
+        if FindType(item):
+          MoveItem(FindItem(), -1, mining_dropoff, 0xFFFF, 0xFFFF, 0)
+          Wait(1000)
 
     # SACRED JOURNEY BACK TO MINING LOCATION
     sacred_journey(book, rune)
